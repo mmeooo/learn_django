@@ -9,7 +9,8 @@ def index(request):
     if path == '/home':
         resultstr= '<h1>여기는 home입니다</h1>'
     else:
-        resultstr= '<h1>여기는 main입니다</h1>'
+        resultstr= '<h1>여기는 master입니다</h1>'
+
     return HttpResponse(resultstr)
 # 클라이언트가 요청하면 html을 뱉어내는 함수
 
