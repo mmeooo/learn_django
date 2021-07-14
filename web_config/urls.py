@@ -16,14 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home import views
+from maps import views as mapsviews
+# 중복되지 않기 위해 별칭 사용
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home', views.index),
     # url과 function을 연결해줌
     # http://127.0.0.1:8000/home 실행하면 views.py의 index함수가 실행됨
+
     path('', views.index),
     # http://127.0.0.1:8000/ 실행하면 views.py의 index함수가 실행됨
+
     path('index01', views.index01),
     path('index02', views.index02),
+
+    path('maps/home', mapsviews.home),
+
 ]
