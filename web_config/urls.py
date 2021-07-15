@@ -18,6 +18,7 @@ from django.urls import path
 from home import views
 from maps import views as mapsviews
 # 중복되지 않기 위해 별칭 사용
+from board import views as boardviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +33,7 @@ urlpatterns = [
     path('index02', views.index02),
 
     path('maps/home', mapsviews.home),
+
+    path('board/list', boardviews.list),
 
 ]
