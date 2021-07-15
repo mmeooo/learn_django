@@ -23,6 +23,7 @@ if res.status_code == 200: # 200이 정상
         except:
             pass # 에러가 나도 pass, for문 계속 진행
         print(title, ':', href)
+
     connect.commit() # db에 저장
 
 # 다른 방법: 쌍다옴표와 작은다옴표로 구분하기, 변수는 string 처리X
