@@ -6,27 +6,21 @@
 </head>
 <body>
     <h1>검색</h1>
-    <a href="home">홈페이지로 이동</a>
-    <form action="/home">
-        <input type="text" name="first">
-        <input type="text" name="second">
-        <input type="text" name="third">
-        <input type="submit" name="press">
-    </form>
-    <h2>검색창</h2>
+    <input type="text" name="first">
+
     <form action="/home">
         <input type="text" name="search">
-        <input type="submit" name="press">
+       <input type="submit" name="press" />
     </form>
-    <h2>입력창</h2>
-    <form action="index01">
+    <h1>입력</h1>
+    <form action="/index01" method="post">
+        {% csrf_token %}
         <input type="text" name="first">
         <input type="text" name="second">
         <input type="text" name="third">
-        <input type="submit" name="press">
+        <input type="submit" name="press" />
     </form>
-
-<!--form은 submit 있어야만 동작-->
+    <a href="/home">홈 페이지로 이동</a>
 
 </body>
 </html>

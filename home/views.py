@@ -1,3 +1,7 @@
+import sqlite3
+from datetime import datetime
+
+from bs4 import BeautifulSoup
 from django.shortcuts import render
 
 # Create your views here.
@@ -24,7 +28,7 @@ def index01(request):
 def index02(request):
     result= {'first': request.GET['first'], 'second':request.GET['second']}
     # 사용자가 쏜 값을 넣음. GET방식
-    return render(request, 'index.html', context= result)
+    return render(request, 'index_copy.html', context= result)
 
 
 import requests
