@@ -83,16 +83,22 @@
 
 ### DB - Django
 
-1. DB Browser->  +  -> sqlite3
+1. `python manage.py startapp polls(디렉토리이름)`
 
 2. `python manage.py makemigrations polls`
-
-   polls-> migrations 폴더에 파일 생김
+   : polls-> migrations-> 0001_initial.py  파일 생김
+   : models.py class함수 내용를 변경-> 변경사항을 db가 알아야함-> `0002_remove_economic_vote.py` 파일 생김
 
 3. `python manage.py sqlmigrate polls 0002`
+   : 파일 내용을 쿼리문으로 바꿔줌
 
 4. `python manage.py migrate`
+   : 바뀐 내용을 전체적으로 정리해줌
+   : OK 사인 나오면 DB Browser에 연동된 것임
 
-   OK 사인 나오면 DB Browser에 연동된 것임
+5. db browser-> + -> sqlite-> database files-> ... -> 디렉토리 안의 db.sqlite3 지정-> test connection
 
+6. 파이썬 파일 실행
+
+7. select 문 connection에 가져와서 실행
    
