@@ -35,5 +35,5 @@ urlpatterns = [
     path('maps/home', mapsviews.home),
 
     path('board/list', boardviews.list),
-
+    path('board/list_paginator', boardviews.list_paginator),
 ]

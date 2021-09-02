@@ -24,3 +24,20 @@ def list(request):
 
 
     return render(request, 'board/list.html', result )
+
+from django.core.paginator import Paginator
+def list_paginator(request):
+    conn = sqlite3.connect('db.sqlite3')
+    conn.row_factory = sqlite3.Row
+    curs = conn.cursor()
+    curs.execute('select * from polls_economics')
+    data = curs.fetchall()
+    for row in data:
+        print(row['title'], row['href'])
+    paginator = Paginator(data, 5)
+    result = dict()
+    page_number = result['paginator'] = paginator
+    request.GET.get('page', page_number)
+    result['page_obj'] = paginator.get_page(page_number)
+
+    return render(request, 'board/list_paginator.html', context=result)
