@@ -21,11 +21,11 @@ def list(request):
     result['members']= curs.fetchall()
     for row in result['members']:
         print(row['username']+ ' : ' + row['email'])
-
-
     return render(request, 'board/list.html', result )
 
+
 from django.core.paginator import Paginator
+
 def list_paginator(request):
     conn = sqlite3.connect('db.sqlite3')
     conn.row_factory = sqlite3.Row
@@ -36,8 +36,8 @@ def list_paginator(request):
         print(row['title'], row['href'])
     paginator = Paginator(data, 5)
     result = dict()
-    page_number = result['paginator'] = paginator
-    request.GET.get('page', page_number)
+    result['paginator'] = paginator
+    page_number = request.GET.get('page', 1)
     result['page_obj'] = paginator.get_page(page_number)
 
     return render(request, 'board/list_paginator.html', context=result)

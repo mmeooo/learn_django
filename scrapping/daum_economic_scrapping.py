@@ -9,21 +9,23 @@ import sqlite3 # db테이블에 커넥션
 if res.status_code == 200: # 200이 정상
     soup= BeautifulSoup(res.content, 'html.parser') # 형식화해서 쓰기 편하게 컨텐츠를 bs에 넣어줌
     links= soup.select('a.link_txt') # 스크래핑 하고 싶은 부분
-    connect = sqlite3.connect('../polls/db.sqlite3')  # 프로젝트 루트 파일의 경로
+    connect = sqlite3.connect('../db.sqlite3')  # 프로젝트 루트 파일의 경로
     cursor = connect.cursor()  # 위치를 알기위한 커서
     # sql문을 string으로 넣으면 실행됨-> cursor.excute()
+
+    category = ['스포츠', '정치']
+    public_date = ['20210819', '20211030']
 
     for link in links: # ResultSet은 List임
         title= str.strip(link.get_text())
         href= str.strip(link.get('href'))
-
         try:
             cursor.execute(
-                "insert into polls_economics(create_date, href, title) values(datetime('now'), ?, ?)", (href, title) )
-            # polls_economics에 값을 insert한다
+                "insert into polls_economics(category, public_date, create_date, href, title) values(datetime('now'), ?, ?)", (href, title))
+                # polls_economics에 값을 insert한다
+            print(title, ':', href)
         except:
             pass # 에러가 나도 pass, for문 계속 진행
-        print(title, ':', href)
 
     connect.commit() # db에 저장
 
