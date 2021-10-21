@@ -1,4 +1,4 @@
-# test_django
+# learn_django
 
 ### Pycharm - Django
 
